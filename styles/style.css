@@ -1,0 +1,159 @@
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+    background-color: #E2EAF8;
+}
+
+.titel {
+    position: absolute;
+    margin-top: 2em;
+    margin-left: 28em;
+    margin-bottom: 0.5em;
+    text-align: center;
+    color: #A8C813;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.titel label {
+    font-weight: 200;
+    font-size: 15px;
+    color: #878787;
+}
+
+/* Met de css hierboven wordt de tekst voor het 'invulbalkje' vormgegeven. */
+
+.titel p {
+    position: absolute;
+    margin-left: 0em;
+    margin-bottom: 10em;
+    font-size: 10px;
+    text-align: center;
+    color: #878787;
+    font-weight: 200;
+}
+
+#buttonEnter {
+    height: 27px;
+    width: 80px;
+    display: inline-block;
+    margin-left: 1em;
+    border-radius: 10px;
+    border-style: none;
+    background-color: #ffffff;
+    color: #878787;
+    cursor: pointer;
+    box-shadow: 0 3px #EDEDED;
+}
+
+/* De css stijlt de enter button na het label. */
+
+img {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 2em;
+    margin-top: 15em;
+}
+
+#legepot {
+    height: 8em;
+    width: 7.5em;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 4em;
+}
+
+#zaadjes,
+#water,
+#zon,
+#liefde {
+    width: 100px;
+    height: 38px;
+    margin-right: 1em;
+    border-radius: 10px;
+    margin-left: 1em;
+    border-style: none;
+    color: #878787;
+    cursor: pointer;
+    box-shadow: 0 6px #EDEDED;
+    background-color: #ffffff;
+    display: inline-block;
+}
+
+/* Dit is de styling voor de buttons om de plant te verzorgen. */
+
+.gezondheid {
+    display: block;
+    background-color: none;
+    margin-bottom: 2em;
+    margin-left: 0em;
+    margin-right: 58em;
+}
+
+/* Dit is de styling van de gesteldheid en tekst. */
+
+.gezondheid h3 {
+    color: #A8C813;
+    text-align: left;
+    margin-left: 2em
+}
+
+.gezondheid p {
+    color: #A8C813;
+    text-align: left;
+    margin-left: 2.5em;
+}
+
+.gesteldheid {
+    margin-top: 0.4em;
+}
+
+.dorreplant {
+    display: none;
+    position: absolute;
+    top: 2em;
+    right: 1em;
+    border-style: none;
+    border-radius: 10px;
+    width: 23%;
+    height: 23%;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.dorreplant h2 {
+    color: #95C11F;
+    font-size: 16px;
+}
+
+.dorreplant p {
+    color: #878787;
+    font-size: 12px;
+    font-weight: 100;
+}
+
+
+#herhaalgame {
+    display: inline-block;
+    width: 100px;
+    height: 38px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    border-style: none;
+    background-color: #ffffff;
+    box-shadow: 0 6px #EDEDED;
+    color: #878787;
+}
+
+.blockItem {
+    display: block;
+}
+
+/*  Hiermee wordt het blokje van de verdorde plant aangeroepen. Deze verschijnt rechtsboven in beeld als de plant te weinig aandacht heeft gekregen. */

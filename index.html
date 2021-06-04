@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Liana Boyadjian">
+
+    <title>WATER ME</title>
+
+    <link href="styles/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<!-- Dit is de head van mijn html bestand. De titel is WATER ME. In de head staat een link naar het CSS en de gebruikte fonts. -->
+
+<body>
+    <main>
+        <section class="titel">
+            <h1 id="tekst">Welkom bij WATER ME, <span id="waterme"></span></h1>
+            <label for="naam">Geef je plant een naam</label>
+            <input type="text" id='naam' name="naam">
+            <button type="button" id="buttonEnter" name="button">Enter</button>
+            <p>Dit is een tamagotchi. Je kunt mij verzorgen door op de buttons te klikken. Let op de gezondheidsmeter onderaan, zo weet je of het goed met mij gaat.</p>
+        </section>
+
+
+        <!-- Hierboven staat het intro en de mogelijkheid om de plant een naam te geven. De naam van de plant komt dan achter 'welkom' te staan. Ook wordt er uitgelegd hoe de tamagotchi werkt. -->
+
+
+        <section>
+            <img id="legepot" src="images/legepot.png" alt="Dit is een lege bloempot.">
+        </section>
+
+        <!-- Hiermee wordt de afbeelding van de lege bloempot weergegeven, deze is te zien als de pagina voor het eerste wordt opgestart. -->
+
+        <section class="buttons">
+            <button type="button" id="zaadjes" name="button">Strooi zaadjes</button>
+            <button type="button" id="water" name="button">Geef water</button>
+            <button type="button" id="zon" name="button">Zonneschijn</button>
+            <button type="button" id="liefde" name="button">Geef liefde</button>
+        </section>
+
+        <!-- Met de buttons hierboven kun je de plant zaadjes, water, zon of liefde geven. Dit verhoogt de gezondheid van de plant. Dat is weer terug te zien op de gezondheidsmeter. -->
+
+
+        <section class="gezondheid">
+            <h3>Hieronder kun je zien hoe gezond je plant is</h3>
+            <section class="gezondheidsbalk">
+                <p><span>100</span>/100</p>
+                <img class="gesteldheid" src="images/gezond10.png" alt="geeft de gesteldheid van de plant aan">
+            </section>
+        </section>
+
+        <!-- Met de code hierboven is de balk van gezondheid weergegeven. Door op de buttons te klikken kun je de plant tevreden houden. De balk telt wel langzaam af naar nul, als je niet goed genoeg voor hem zorgt verdord hij. -->
+
+        <section class="dorreplant">
+            <h2>Oh nee, je plant is verdord.</h2>
+            <p id="jammer">Je hebt de plant niet goed genoeg verzorgd. Klik op opnieuw proberen voor een tweede kans.</p>
+            <button id="herhaalgame">Opnieuw proberen</button>
+        </section>
+
+        <!-- Met deze pop-up wordt duidelijk gemaakt dat de plant dor is. Door op de button te klikken worden de pagina opnieuw geladen en kun je het nog een keer proberen.  -->
+
+        <script src="js/script.js"></script>
+
+        <!-- Met deze code wordt de html aan het Javascript gelinkt. -->
+
+    </main>
+</body>
+
+</html>
