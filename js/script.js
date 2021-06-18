@@ -3,14 +3,13 @@
 var naamVanplant = document.querySelector('#naam');
 var buttonEnter = document.querySelector('#buttonEnter');
 var geefZaadjesbutton = document.querySelector('#zaadjes');
-var pot = document.querySelector("#legepot");
+var afbeeldingLegepot = document.querySelector("#legepot");
 var geefWaterbutton = document.querySelector('#water');
 var geefZonbutton = document.querySelector('#zon');
 var geefLiefdebutton = document.querySelector('#liefde');
-var interval = setInterval(metertje, 1000);
 /* Tim heeft mij geholpen bij het opzetten van de meter. Er wordt hier in principe elke keer een stap van de meter afgehaald door middel van een timer van 5sec.*/
 var meterHoeveelheid = 100;
-var gesteldheid = document.querySelector(".gesteldheid");
+var gesteldheidsMeterplant = document.querySelector(".gesteldheid");
 var dorrePlant = document.getElementById('dorreplant');
 var gezondheidsbalk = document.querySelector(".gezondheidsbalk span");
 var herhaal = document.getElementById("herhaalgame");
@@ -22,51 +21,29 @@ function naamVerzinnen() {
 
 /* Ik heb hierboven een functie aangeroepen zodat de gebruiker de naam van zijn plant in kan typen. Functie wordt alleen aangeroepen als het script er om gevraagd heeft. */
 
-buttonEnter.addEventListener('click', naamVerzinnen);
-
-/* Met deze addEventlistener wordt het intypen van de naam, gekoppeld aan de enter button op de pagina. De 'click' activeert de button.*/
-
-
-geefZaadjesbutton.addEventListener('click', geefZaadjes);
-
 function geefZaadjes() {
     meterHoeveelheid += 10;
     checkVariabele();
-    pot.src = './images/geeftzaadjes.png';
+    afbeeldingLegepot.src = './images/geeftzaadjes.png';
 }
-
-/* De addEventlistener koppelt een event aan een specifiek element. De eerste parameter beschrijft het type event, de tweede is de functie die ik wil aanroepen als het event gebeurd. Opgeschreven uit lessen en van w3Schools.*/
-
-geefWaterbutton.addEventListener('click', geefWater);
 
 function geefWater() {
     meterHoeveelheid += 10;
     checkVariabele();
-    pot.src = './images/geeftwater.png';
+    afbeeldingLegepot.src = './images/geeftwater.png';
 }
-
-/* Bij deze addEventlistener wordt er water gegeven aan de plant. De afbeelding verschijnt dan op het scherm.*/
-
-
-geefZonbutton.addEventListener('click', geefZon);
 
 function geefZon() {
     meterHoeveelheid += 10;
     checkVariabele();
-    pot.src = './images/zon.png';
+    afbeeldingLegepot.src = './images/zon.png';
 }
-
-/*Hetzelfde geld voor deze addEventlistener maar dan met de zon.*/
-
-geefLiefdebutton.addEventListener('click', geefLiefde);
 
 function geefLiefde() {
     meterHoeveelheid += 10;
     checkVariabele();
-    pot.src = './images/liefde.png';
+    afbeeldingLegepot.src = './images/liefde.png';
 }
-
-/* Bij de checkVariabele hulp gekregen van Rowin (klasgenoot) voor een verhoging bij een klik op de knop. Als hierop is geklikt krijgt de gebruiker een bevestiging door de meter en een andere afbeelding.*/
 
 function metertje() {
     meterHoeveelheid -= 5;
@@ -74,30 +51,40 @@ function metertje() {
     plantDood();
 }
 
+var meterAfbeeldingen = ["gezond10", "gezond8", "gezond6", "gezond4", "gezond2"];
+var meterAfbeeldingenPath = "./images/";
+var meterAfbeeldingenExtension = ".png";
+
 function plantDood() {
     if (meterHoeveelheid > 80) {
-        gesteldheid.src = "./images/gezond10.png";
+        gesteldheidsMeterplant.src = meterAfbeeldingenPath + meterAfbeeldingen[0] + meterAfbeeldingenExtension;
     } else if (meterHoeveelheid > 60) {
-        gesteldheid.src = "./images/gezond8.png";
+        gesteldheidsMeterplant.src = meterAfbeeldingenPath + meterAfbeeldingen[1] + meterAfbeeldingenExtension;
     } else if (meterHoeveelheid > 40) {
-        gesteldheid.src = "./images/gezond6.png";
+        gesteldheidsMeterplant.src = meterAfbeeldingenPath + meterAfbeeldingen[2] + meterAfbeeldingenExtension;
     } else if (meterHoeveelheid > 20) {
-        gesteldheid.src = "./images/gezond4.png";
+        gesteldheidsMeterplant.src = meterAfbeeldingenPath + meterAfbeeldingen[3] + meterAfbeeldingenExtension;
     } else if (meterHoeveelheid > 0) {
-        gesteldheid.src = "./images/gezond2.png";
+        gesteldheidsMeterplant.src = meterAfbeeldingenPath + meterAfbeeldingen[4] + meterAfbeeldingenExtension;
     }
 
-    if (meterHoeveelheid == 0) {
-        pot.src = "./images/plantdor.png";
-        gesteldheid.src = "./images/gezond0.png";
+/* array aangemaakt en in de array zitten 5 waarden, deze waarden zijn bestandsnamen (afbeeldingen). variabele aangemaakt die de map locatie aangeeft. de volgende is de extensie van de afbeelding. variabele samengevoegd met de specifieke afbeelding ([]). met src kun je de afbeelding bron veranderen.*/
 
-        clearInterval;
+    if (meterHoeveelheid == 0) {
+        afbeeldingLegepot.src = "./images/plantdor.png";
+        gesteldheidsMeterplant.src = "./images/gezond0.png";
+
+        clearInterval(interval);
         var dorrePlant = document.querySelector(".dorreplant");
         dorrePlant.classList.add("blockItem");
     }
 }
 
-/* Hulp gekregen van Tim (klasgenoot) bij het aftellen van de gesteldheidsmeter. Door middel van de meterHoeveelheid wordt bepaald welke afbeelding de meter aangeeft. De minder de gebruiker op de buttons klikt, de korter wordt de meter. Als je helemaal stopt met op de buttons klikken gaat de plant dood, dat is de clearinterval. De meter telt af naar nul. De blockitem staat in het css en zorgt ervoor dat deze wordt aangeroepen. */
+var interval = setInterval(metertje, 1000);
+
+
+
+/* Hulp gekregen van Tim bij het aftellen van de gesteldheidsmeter. Door middel van de meterHoeveelheid wordt bepaald welke afbeelding de meter aangeeft. De minder de gebruiker op de buttons klikt, de korter wordt de meter. Als je helemaal stopt met op de buttons klikken gaat de plant dood, dat is de clearinterval. De meter telt af naar nul. De blockitem staat in het css en zorgt ervoor dat deze wordt aangeroepen. */
 
 
 function checkVariabele() {
@@ -105,7 +92,7 @@ function checkVariabele() {
         meterHoeveelheid = 105;
     }
 }
-/* Bij deze checkVa. met Rowin gekeken naar de dubbelcheck voor de functies. */
+
 
 
 function herlaadPagina() {
@@ -117,3 +104,29 @@ function herlaadPagina() {
 herhaal.addEventListener("click", herlaadPagina);
 
 /* De click zorgt ervoor dat het event in gang wordt gezet als de gebruiker erop klikt. */
+
+
+buttonEnter.addEventListener('click', naamVerzinnen);
+
+/* Met deze addEventlistener wordt het intypen van de naam, gekoppeld aan de enter button op de pagina. De 'click' activeert de button.*/
+
+
+geefZaadjesbutton.addEventListener('click', geefZaadjes);
+
+
+/* De addEventlistener koppelt een event aan een specifiek element. De eerste parameter beschrijft het type event, de tweede is de functie die ik wil aanroepen als het event gebeurd. Opgeschreven uit lessen en van w3Schools.*/
+
+geefWaterbutton.addEventListener('click', geefWater);
+
+
+
+/* Bij deze addEventlistener wordt er water gegeven aan de plant. De afbeelding verschijnt dan op het scherm.*/
+
+
+geefZonbutton.addEventListener('click', geefZon);
+
+
+
+/*Hetzelfde geld voor deze addEventlistener maar dan met de zon.*/
+
+geefLiefdebutton.addEventListener('click', geefLiefde);
